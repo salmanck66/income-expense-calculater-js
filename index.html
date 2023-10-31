@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Expense Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</script>
+    </head>
+<body>
+
+    <div class="container">
+        <div class="hero" style="background-color: chocolate; flex-basis: auto; height: 100vh;">
+            <h1>Income Expense Calculater</h1>
+            <div class="income">
+                <label  for="Enter Income" >Enter Income</label>
+                <input id="income" type="text input">
+                <label for="Enter Expense">Enter Category</label>
+                <input id="income-cat" type="text"> 
+                <button onclick="incomeSubmit()" type="button">Add</button>
+            </div>
+            <br>
+
+            <div class="expense">
+                <label  for="Enter Expense">Enter Expense</label>
+                <input id="expense" type="text">
+                <label for="Enter Expense">Enter Category</label>
+                <input id="expense-cat" type="text">
+                <button onclick="expenseSubmit()" type="submit btn">Add</button>
+            </div>
+            
+            <div class="tables ">
+                <div class="table border">
+                    <table id="tablee">
+                        <thead>
+                        <tr>
+                            <th>income</th>
+                            <th>category</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablee">
+                    </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex">
+                    <h1>Income Total =</h1>
+                    <h1 id="incometotal"></h1>
+                </div>
+
+                <div class="table border">
+                    <table >
+                        <thead>
+                        <tr>
+                            <th>Expense</th>
+                            <th>category</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablee2">
+
+                    </tbody>
+                    </table>
+                </div>
+                <div class="d-flex">
+                    <h1>Expense Total =</h1>
+                    <h1 id="expensetotal"></h1>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <canvas id="myChart" style="height: 100px;"></canvas>
+
+
+
+
+    <script src="js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    </body>
+</html>
