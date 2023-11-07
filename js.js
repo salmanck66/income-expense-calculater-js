@@ -1,20 +1,23 @@
 
 let incomeTot = 0;
+console.log(incomeTot)
 let expenseTot = 0;
+var balance = incomeTot - expenseTot;
+console.log(expenseTot)
+
 
 function incomeSubmit()
 {
   let incom=document.querySelector("#income").value
   let incomca=document.querySelector("#income-cat").value
  if(incom == "" || incom ==0 || isNaN(incom)){
-    alert("Income Cannot Be Null,text,empty")
+    alert("Income Cannot Be Empty,text or zero")
     document.getElementById("income").value = "";
     document.getElementById("income-cat").value = "";
-
  }
- if(incomca.length<=0 || !isNaN(incomca))
+ if(incomca.length<=3 || !isNaN(incomca))
  {
-    alert("Income Catergoty Cannot Be Null,Number,empty")
+    alert("Income Catergoty Should Be More Than 4 Letters And Cannot Be Number")
     document.getElementById("income").value = "";
     document.getElementById("income-cat").value = "";
  }
@@ -36,15 +39,16 @@ function incomeSubmit()
 
     row.appendChild(incomestore);
     row.appendChild(incomecatstore);
-
     document.getElementById("tablee").appendChild(row)
     document.getElementById("income").value = "";
     document.getElementById("income-cat").value = "";
-    document.getElementById("incometotal").textContent=incomeTot
+    document.getElementById("incometotal").innerHTML=incomeTot
+    let balance=document.querySelector("#balance").innerHTML = incomeTot-expenseTot
+    yValues = [incomeTot, balance, expenseTot];
+    chartAdd()
     
  }
  
- chr() 
 }
 
 function expenseSubmit()
@@ -72,8 +76,7 @@ function expenseSubmit()
     const expenseCat = document.getElementById("expense-cat").value;
     console.log(expenseCat);
     expenseTot += expense
-
-
+    
     const row = document.createElement("tr")
 
    const expstore = document.createElement("td");
@@ -84,43 +87,44 @@ function expenseSubmit()
 
     row.appendChild(expstore);
     row.appendChild(expcatstore);
-
+    
     document.getElementById("tablee2").appendChild(row)
     document.getElementById("expense").value = "";
     document.getElementById("expense-cat").value = "";
-    document.getElementById("expensetotal").textContent=expenseTot
-    
-     }
-     chr()
-}
-
-function chr()
-{
-    const xValues = ["income", "expense"];
-const yValues = [incomeTot, expenseTot];
-const barColors = [
-  "#b91d47",
-  "#00aba9"
-];
-
-new Chart("myChart", {
-  type: "pie",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "World Wide Wine Production 2018"
+    document.getElementById("expensetotal").innerHTML=expenseTot;
+    let balance=document.querySelector("#balance").innerHTML = incomeTot-expenseTot
+    yValues = [incomeTot, balance, expenseTot];
+    chartAdd()
     }
-  }
-});
+     
+     
 }
 
 
+function chartAdd() {
+  var xValues = ["INCOME", "BALANCE", "EXPENSE"];
+  var yValues = [incomeTot, balance, expenseTot];
+  var barColors = [
+      "green",
+      "blue",
+      "red",
+  ];
 
+  new Chart("myChart", {
+      type: "pie",
+      data: {
+          labels: xValues,
+          datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+          }]
+      },
+      options: {
+          title: {
+              display: true,
+              text: ""
+          }
+      }
+  });
+}
 
